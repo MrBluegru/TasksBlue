@@ -12,8 +12,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {/* <Greeting name="Mr. Blue"></Greeting> */}
         {/* <GreetingF name="Mr. Blue"/> */}
-        {/* <TaskList></TaskList> */}
-        <GreetingStyled name="Mr. Blue"/>
+        <TaskList></TaskList>
+        {/* <GreetingStyled name="Mr. Blue"/> */}
       </header>
     </div>
   );
