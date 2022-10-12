@@ -4,17 +4,16 @@ import logo from "./logo.svg";
 import TaskList from "./components/container/task_list";
 import "./App.css";
 import GreetingStyled from "./components/pure/greetingStyled";
+import LoginFormik from "./components/pure/forms/loginFormik";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         {/* <Greeting name="Mr. Blue"></Greeting> */}
         {/* <GreetingF name="Mr. Blue"/> */}
-        <TaskList></TaskList>
         {/* <GreetingStyled name="Mr. Blue"/> */}
-      </header>
+        {/* <TaskList></TaskList> */}
+        <LoginFormik/>
     </div>
   );
 }
