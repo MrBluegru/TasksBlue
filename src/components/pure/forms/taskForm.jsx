@@ -8,7 +8,7 @@ const TaskForm = ({ add }) => {
   const descriptionRef = useRef("");
   const levelRef = useRef(LEVELS.NORMAL);
 
-  console.log(nameRef);
+  // console.log(nameRef);
 
   function addTask(e) {
     e.preventDefault();

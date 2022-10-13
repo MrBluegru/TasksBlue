@@ -4,6 +4,7 @@ import { LEVELS } from "../../models/levels.enum";
 import TaskComponent from "../pure/task";
 import "../../styles/task.scss";
 import TaskForm from "../pure/forms/taskForm";
+import TaskFormik from "../pure/forms/taskFormik";
 
 const TaskList = () => {
   const defaultTask1 = new Task(
@@ -32,16 +33,16 @@ const TaskList = () => {
   ]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    console.log("Task state has been modified");
-    setLoading(false);
-    return () => {
-      console.log("Task component is going to unmount...");
-    };
-  }, [tasks]);
+  // useEffect(() => {
+  //   console.log("Task state has been modified");
+  //   setLoading(false);
+  //   return () => {
+  //     console.log("Task component is going to unmount...");
+  //   };
+  // }, [tasks]);
 
   function completeTask(task) {
-    console.log(`Task: ${task}`);
+    // console.log(`Task: ${task.completed}`);
     const index = tasks.indexOf(task);
     const tempTask = [...tasks];
     tempTask[index].completed = !tempTask[index].completed;
@@ -79,7 +80,7 @@ const TaskList = () => {
               <TaskComponent
                 task={task}
                 key={index}
-                complete={completeTask}
+                completed={completeTask}
                 remove={deleteTask}
               />
             );
@@ -108,7 +109,8 @@ const TaskList = () => {
           </div>
         </div>
       </div>
-      <TaskForm add={addTask} />
+      {/* <TaskForm add={addTask} /> */}
+      <TaskFormik add={addTask}/>
     </div>
   );
 };

@@ -4,32 +4,32 @@ import { Task } from "../../models/task.class";
 import "../../styles/task.scss";
 import { LEVELS } from "../../models/levels.enum";
 
-const TaskComponent = ({ task, complete, remove }) => {
-  useEffect(() => {
-    console.log("Created Task");
-    return () => {
-      console.log(`Task: ${task.name} is going to unmount`);
-    };
-  }, [task]);
+const TaskComponent = ({ task, completed, remove }) => {
+  // useEffect(() => {
+  //   console.log("Created Task");
+  //   return () => {
+  //     console.log(`Task: ${task.name} is going to unmount`);
+  //   };
+  // }, [task]);
 
   function taskLevelBadge() {
     switch (task.level) {
       case LEVELS.NORMAL:
         return (
           <h6 className="mb-0">
-            <spam className="badge bg-primary">{task.level}</spam>
+            <p className="badge bg-primary">{task.level}</p>
           </h6>
         );
       case LEVELS.URGENT:
         return (
           <h6 className="mb-0">
-            <spam className="badge bg-warning">{task.level}</spam>
+            <p className="badge bg-warning">{task.level}</p>
           </h6>
         );
       case LEVELS.BLOCKING:
         return (
           <h6 className="mb-0">
-            <spam className="badge bg-danger">{task.level}</spam>
+            <p className="badge bg-danger">{task.level}</p>
           </h6>
         );
       default:
@@ -41,7 +41,7 @@ const TaskComponent = ({ task, complete, remove }) => {
     if (task.completed)
       return (
         <i
-          onClick={() => complete(task)}
+          onClick={() => completed(task)}
           className="bi-toggle-on task-action"
           style={{ color: "green", fontWeight: "bold" }}
         ></i>
@@ -49,7 +49,7 @@ const TaskComponent = ({ task, complete, remove }) => {
     else {
       return (
         <i
-          onClick={() => complete(task)}
+          onClick={() => completed(task)}
           className="bi-toggle-off task-action"
           style={{ color: "grey", fontWeight: "bold" }}
         ></i>
@@ -60,10 +60,10 @@ const TaskComponent = ({ task, complete, remove }) => {
   return (
     <tr className="fw-normal">
       <th>
-        <spam className="ms-2">{task.name}</spam>
+        <p className="ms-2">{task.name}</p>
       </th>
       <td className="align-middle">
-        <spam>{task.description}</spam>
+        <p>{task.description}</p>
       </td>
       <td className="align-middle">{taskLevelBadge()}</td>
       <td>
