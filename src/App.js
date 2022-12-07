@@ -1,24 +1,22 @@
 import logo from "./logo.svg";
-// import Greeting from "./components/pure/greeting.jsx";
-// import GreetingF from "./components/pure/greetingF";
+import { Routes, Route, Navigate } from "react-router-dom";
 import TaskList from "./components/container/task_list";
-import GreetingStyled from "./components/pure/greetingStyled";
 import LoginFormik from "./components/pure/forms/loginFormik";
+import Error from "./pages/error/Error";
+import DashBoard from "./pages/dashboard/DashBoard";
 import RegisterFormik from "./components/pure/forms/registerFormik";
-import TaskFormik from "./components/pure/forms/taskFormik";
 import "./App.css";
 
 function App() {
+  let loggedIn = true;
+
   return (
-    <div className="App">
-        {/* <Greeting name="Mr. Blue"></Greeting> */}
-        {/* <GreetingF name="Mr. Blue"/> */}
-        {/* <GreetingStyled name="Mr. Blue"/> */}
-        <TaskList></TaskList>
-        {/* <LoginFormik/> */}
-        {/* <RegisterFormik/> */}
-        {/* <TaskFormik/> */}
-    </div>
+    <Routes>
+      <Route path="/login" element={<LoginFormik />} />
+      <Route path="/register" element={<RegisterFormik />} />
+      <Route path="/dashBoard" element={<DashBoard />} />
+      <Route path="*" element={<Error />} />
+    </Routes>
   );
 }
 
